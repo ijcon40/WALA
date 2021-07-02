@@ -33,3 +33,19 @@ After doing this, you can verify that the drivers have installed properly using
 sudo dmesg | grep "i915 firmware"
 ```
 This should print two-three lines assuming you are configuring i915
+
+After this is setup, using the docker image at https://hub.docker.com/layers/julianwindows/wala/walacodenetdev/images/sha256-e033202eee429b8e6aabe74176df16d3a3495545af19b5c446bb8110a9e03999?context=explore
+
+You can use a vnc viewer to attach to this image
+
+From there, you need only verify your java version and then you should be able to compile the java11 WALA branch using
+```aidl
+./gradlew compileJava
+```
+
+Likewise, you should be able to compile the wala based tools in the Project_CodeNet repo
+```aidl
+./gradlew clean build publishToMavenLocal
+```
+
+This might fail due to compatibility and this is being looked into
